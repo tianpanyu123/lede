@@ -72,34 +72,34 @@ jobs:
           # 无论你想要对固件进行怎样的定制, 都需要且只需要修改 EOF 回环内的内容.
           # 
           # 编译x64固件:
-          # cat >> .config <<EOF
-          # CONFIG_TARGET_ath79=y
-          # CONFIG_TARGET_ath79_tiny=y
-          # CONFIG_TARGET_ath79_tiny_DEVICE_tplink_tl-wr703n=y
-          # EOF
+            cat >> .config <<EOF
+            CONFIG_TARGET_ath79=y
+            CONFIG_TARGET_ath79_tiny=y
+            CONFIG_TARGET_ath79_tiny_DEVICE_tplink_tl-wr703n=y
+            EOF
           # 固件压缩:
-          # cat >> .config <<EOF
-          # CONFIG_TARGET_IMAGES_GZIP=y
-          # EOF
+           cat >> .config <<EOF
+           CONFIG_TARGET_IMAGES_GZIP=y
+           EOF
           # 编译UEFI固件:
-          # cat >> .config <<EOF
-          # CONFIG_EFI_IMAGES=n
-          # EOF
+            cat >> .config <<EOF
+            CONFIG_EFI_IMAGES=n
+            EOF
           # IPv6支持:
-          # cat >> .config <<EOF
-          # CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
-          # CONFIG_PACKAGE_ipv6helper=y
-          # EOF
+            cat >> .config <<EOF
+            CONFIG_PACKAGE_dnsmasq_full_dhcpv6=n
+            CONFIG_PACKAGE_ipv6helper=n
+            EOF
           # 多文件系统支持:
-          # cat >> .config <<EOF
-          # CONFIG_PACKAGE_kmod-fs-nfs=n
-          # CONFIG_PACKAGE_kmod-fs-nfs-common=n
-          # CONFIG_PACKAGE_kmod-fs-nfs-v3=n
-          # CONFIG_PACKAGE_kmod-fs-nfs-v4=n
-          # CONFIG_PACKAGE_kmod-fs-ntfs=n
-          # CONFIG_PACKAGE_kmod-fs-squashfs=y
-          # EOF
-          # USB3.0支持:
+            cat >> .config <<EOF
+            CONFIG_PACKAGE_kmod-fs-nfs=n
+            CONFIG_PACKAGE_kmod-fs-nfs-common=n
+            CONFIG_PACKAGE_kmod-fs-nfs-v3=n
+            CONFIG_PACKAGE_kmod-fs-nfs-v4=n
+            CONFIG_PACKAGE_kmod-fs-ntfs=n
+            CONFIG_PACKAGE_kmod-fs-squashfs=y
+            EOF
+          #USB3.0支持:
           # cat >> .config <<EOF
           # CONFIG_PACKAGE_kmod-usb-ohci=n
           # CONFIG_PACKAGE_kmod-usb-ohci-pci=n
@@ -138,15 +138,15 @@ jobs:
           # CONFIG_PACKAGE_luci-theme-netgear=n
           # EOF
           # 常用软件包:
-          # cat >> .config <<EOF
-          # CONFIG_PACKAGE_curl=y
+            cat >> .config <<EOF
+            CONFIG_PACKAGE_curl=n
           # CONFIG_PACKAGE_htop=n
           # CONFIG_PACKAGE_nano=n
           # CONFIG_PACKAGE_screen=n
           # CONFIG_PACKAGE_tree=n
           # CONFIG_PACKAGE_vim-fuller=n
-          # CONFIG_PACKAGE_wget=y
-          # EOF
+            CONFIG_PACKAGE_wget=y
+            EOF
           # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
           # cat >> .config <<EOF
           # # CONFIG_TARGET_IMAGES_PAD is not set
