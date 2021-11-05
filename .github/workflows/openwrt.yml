@@ -45,6 +45,7 @@ jobs:
           sudo -E apt-get update
           sudo -E apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs gcc-multilib g++-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler antlr3 gperf swig libtinfo5
           sudo -E apt-get -y autoremove --purge
+          sudo -E apt-get -y build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
           sudo -E apt-get clean
 
           # sudo mkdir -p -m 777 /mnt/openwrt/bin /mnt/openwrt/build_dir/host /mnt/openwrt/build_dir/hostpkg /mnt/openwrt/dl /mnt/openwrt/feeds /mnt/openwrt/staging_dir
@@ -76,14 +77,43 @@ jobs:
           CONFIG_TARGET_x86=y
           CONFIG_TARGET_x86_generic=y
           CONFIG_TARGET_x86_generic_DEVICE_generic=y
-          # CONFIG_TARGET_ROOTFS_SQUASHFS is not set
-          CONFIG_PACKAGE_kmod-usb-storage=y
-          CONFIG_TARGET_ROOTFS_PARTSIZE=1008
+          CONFIG_DRIVER_11AC_SUPPORT=y
+          CONFIG_DRIVER_11N_SUPPORT=y
+          CONFIG_GRUB_TIMEOUT="1"
           CONFIG_ISO_IMAGES=y
-          # CONFIG_TARGET_ROOTFS_TARGZ is not set
+          CONFIG_PACKAGE_MAC80211_DEBUGFS=y
+          CONFIG_PACKAGE_MAC80211_MESH=y
+          CONFIG_PACKAGE_hostapd-common=y
+          CONFIG_PACKAGE_iw=y
+          CONFIG_PACKAGE_iwinfo=y
+          CONFIG_PACKAGE_kmod-cfg80211=y
+          CONFIG_PACKAGE_kmod-crypto-aead=y
+          CONFIG_PACKAGE_kmod-crypto-ccm=y
+          CONFIG_PACKAGE_kmod-crypto-cmac=y
+          CONFIG_PACKAGE_kmod-crypto-ctr=y
+          CONFIG_PACKAGE_kmod-crypto-gcm=y
+          CONFIG_PACKAGE_kmod-crypto-gf128=y
+          CONFIG_PACKAGE_kmod-crypto-ghash=y
+          CONFIG_PACKAGE_kmod-crypto-hash=y
+          CONFIG_PACKAGE_kmod-crypto-hmac=y
+          CONFIG_PACKAGE_kmod-crypto-manager=y
+          CONFIG_PACKAGE_kmod-crypto-null=y
+          CONFIG_PACKAGE_kmod-crypto-rng=y
+          CONFIG_PACKAGE_kmod-crypto-seqiv=y
+          CONFIG_PACKAGE_kmod-crypto-sha256=y
+          CONFIG_PACKAGE_kmod-mac80211=y
+          CONFIG_PACKAGE_kmod-rtw88=y
+          CONFIG_PACKAGE_libiwinfo=y
+          CONFIG_PACKAGE_libiwinfo-data=y
+          CONFIG_PACKAGE_wireless-regdb=y
+          CONFIG_TARGET_INITRAMFS_COMPRESSION_NONE=y
+          CONFIG_TARGET_ROOTFS_INITRAMFS=y
+          CONFIG_TARGET_ROOTFS_PARTSIZE=1008
+          # CONFIG_TARGET_ROOTFS_SQUASHFS is not set
           CONFIG_PACKAGE_kmod-fs-exfat=y
           CONFIG_PACKAGE_kmod-fs-ext4=y
           CONFIG_PACKAGE_kmod-fs-ntfs=y
+          CONFIG_PACKAGE_kmod-fs-squashfs=y
           EOF
 
           #
